@@ -1,0 +1,26 @@
+.formContainer {
+  
+  > div{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap:30px;
+  }
+  .inputLabel{
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .inputGroup{
+    margin: 20px 0 ;
+    flex-grow: 1;
+    & input{
+      width: 100%;
+    }
+    & select{
+      width:100%;
+    }
+  }
+  select,input{
+    border-radius: 5px;
+  }
+}

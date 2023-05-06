@@ -1,0 +1,59 @@
+section.productContainer{
+  margin: 60px 0 ;
+  position: relative;
+  h2.registerTitle {
+    font-size: 30px;
+    font-weight: 800;
+    padding-bottom: 50px;
+  }
+
+
+  section.progressContainer{
+      width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+    span.progressIcon{
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      position: relative;
+      text-align: center;
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        border: 1px solid rgb(0, 0, 0);
+        border-radius: 50%;
+      }
+      img.cursorPoint {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 20px;
+          display: none;
+      }
+    }
+    span.progressLabel {
+      font-size: 15px;
+      margin: 10px;
+    }
+    span.progressBar {
+           display: block;
+           background-color: #a7aaaf;
+           height: 1px;
+           width: 50px;
+           margin-right: 10px;
+   }
+  }
+}
+
+
+
+
+
+
