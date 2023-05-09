@@ -7,12 +7,14 @@
 這屬於alpha camp 作業 ，此作業目標是建構出虛構電商alpha shop 的結帳畫面，以下是目前完成的畫面。
 !["alpha-shop"](https://github.com/KFR1230/git-demo/blob/main/%E6%88%AA%E5%9C%96%202023-05-06%20%E4%B8%8A%E5%8D%8811.35.50.png)
 
+0509 完成cart渲染畫面 
+!["alpha-shop"](./src/images/cart_view.png)
 ## Features 功能
 1.模擬結帳流程顯示
 2.模擬結帳資訊填寫
 3.模擬結帳流程控制按鈕
 4.目前僅供畫面（無功能）
-
+5.購物車畫面
 ## Prerequisites 
 Node.js 14.16.0
 React 18.2.0
