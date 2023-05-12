@@ -8,6 +8,7 @@
   font-weight: 700;
   padding: 32px 0;
   border: 1px solid #cfcfcf;
+  min-width: 350px;
   .title{
     margin-bottom: 24px;
   }
@@ -22,20 +23,35 @@
     width: 100px;
   }
   .productInfo {
-    display: flex;
-    flex-flow:column wrap;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "productName price"
+    "control .";
+    width: 100%;
     & .productName, 
     .productControlContainer,
     .price {
-      min-width: 128px;
-      padding: 0px 24px 24px 24px;
+      width: 100%;
+      padding: 10px;
+
     }
     & .productControlContainer .productControl{
-      width: 150px;
+      
       display: flex;
       align-items: center;
-      justify-content: space-around;
-      
+      justify-content: space-between;
+    }
+    .productControlContainer {
+      grid-area: control;
+    }
+    .productName {
+      grid-area: productName;
+    }
+    .price {
+      grid-area: price;
+      text-align: end;
     }
   }
 }
