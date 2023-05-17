@@ -43,7 +43,10 @@ export default function ProgressStep1 (){
   ]
 
   return (
-    <section className={`${styles.formContainer} col col-12`}>
+    <form className= {`${styles.progressForm} col col-12`} data-phase="address">
+      <h3 className={styles.formTitle}>
+          寄送地址
+       </h3>
     <div className={`col col-12`}>
         <div className={`${styles.inputGroup} input-w-lg-2 input-w-sm-s1`}>
                   <div className={styles.inputLabel}>稱謂</div>
@@ -86,6 +89,6 @@ export default function ProgressStep1 (){
                   <input type="text" placeholder="請輸入地址" />
         </div>
       </div>
-    </section>
+    </form>
   )
 }

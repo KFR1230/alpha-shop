@@ -1,12 +1,17 @@
-.formContainer {
+.progressForm {
   > div{
     display: flex;
     width: 100%;
     justify-content: space-between;
     gap:30px;
   }
+  .formTitle {
+       margin-bottom: 10px;
+       font-weight: 600;
+  }
   .inputLabel{
     font-size: 10px;
+    font-weight: 600;
     margin-bottom: 10px;
   }
   .inputGroup{

@@ -1,6 +1,9 @@
 import styles from './Cart.module.scss'
 import minusIcon from '../../icon/minus.svg'
 import plusIcon from '../../icon/plus.svg'
+import {useState} from 'react'
+
+
 const cartItems = [
   {
     id: '1',
@@ -18,7 +21,12 @@ const cartItems = [
   },
 ]
 
-function AddCartItem ({id,name,img,price,quantity}){
+
+
+
+
+function AddCartItem ({id,name,img,price,quantity,handleProduct}){
+  
   return (
     <div className={styles.productContainer} id={id}>
       <img className={styles.imgContainer} src={img} />
@@ -26,27 +34,49 @@ function AddCartItem ({id,name,img,price,quantity}){
               <div className={styles.productName}>{name}</div>
               <div className={styles.productControlContainer}>
                 <div className={styles.productControl}>
-                   <img src = {minusIcon} alt="minus-icon" />
+                   <img src = {minusIcon} alt="minus-icon" data-value ={-1} onClick={(e)=>handleProduct(id,Number(e.target.dataset.value))}/>
                   <span class="product-count">{quantity}</span> 
-                 <img src = {plusIcon} alt="plus-icon" />
-                </div>
+                 <img src = {plusIcon} data-value ={1} alt="plus-icon" 
+                 onClick={(e)=>handleProduct(id,Number(e.target.dataset.value))}/>
+                 </div> {/*  原本想用 value ={1} 但這邊使用的是img 所以不會有value  */}
               </div>  
-        <div className={styles.price}>{price}</div>
+        <div className={styles.price}>${price * quantity}</div>
       </div>
     </div>
   )
 }
 
 
-export default function cartContent(){
+export default function CartContent(){
+  const [cart , setCart] = useState(cartItems);
+  function handleProduct(id,value){
+    const setQuantity = cart.map((c)=>{
+      if(c.id === id ){
+        return {
+          ...c,
+          quantity: (c.quantity + value !== 0)? c.quantity + value : 1 
+        }
+      }else{
+        return c
+      }
+    })
+    
+   setCart(setQuantity)
+  }
+  function TotalAmount (){
+    let total = 0
+    cart.forEach((c)=>{
+      total += c.price * c.quantity
+    })
+    return total
+  }
   return(
-    <>
       <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
           <h3 className={styles.title}>購物籃</h3>
         
         <section className={`${styles.productList} col col-12 `} data-total-price="0" >
-          {cartItems.map((item)=>
-            <AddCartItem {...item} key={item.id}/>        
+          {cart.map((item)=>
+            <AddCartItem {...item} key={item.id} handleProduct={handleProduct}/>        
           )}
         </section>
 
@@ -56,9 +86,10 @@ export default function cartContent(){
           </section>
           <section  className={`${styles.cartInfo} total col col-12`}>
             <div class="text">小計</div>
-            <div class="price">$ 999</div>
+            <div class="price">$ {TotalAmount()}</div> 
           </section>
         </section>
-    </>
   )
 }
+
+ 

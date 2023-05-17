@@ -35,16 +35,17 @@ section.productContainer{
       .text {
         display: block;
         line-height: 20px;
-        height: 20px;
-        width: 20px;
+        height: 22px;
+        width: 22px;
         font-size: 8px;
-        border: 1px solid rgb(0, 0, 0);
+        border: 1px solid #cfcfcf;
+        color: #cfcfcf;
         border-radius: 50%;
       }
       img.cursorPoint {
           position: absolute;
           left: 0;
-          top: 0;
+          top: 3px;
           height: 20px;
           display: none;
       }
@@ -52,6 +53,7 @@ section.productContainer{
     span.progressLabel {
       font-size: 15px;
       margin: 10px;
+      color: #cfcfcf;
     }
     span.progressBar {
            display: block;
@@ -59,15 +61,27 @@ section.productContainer{
            height: 1px;
            width: 50px;
            margin-right: 10px;
-      &[data-order="2"] {
+      &[data-order=true] {
         height: 2px;
         background-color: #000000;
       }    
    } 
-  .progressGroup:nth-child(1){
+    .progressGroup[data-state="active"],
+    .progressGroup[data-state="done"]{
     .text {
       background-color: #000000;
       color: white;
+    }
+    span.progressLabel{
+      color: #000000;
+    }
+   }
+   .progressGroup[data-state="done"]{
+    .text{
+      display: none;
+    }
+    img.cursorPoint{
+      display: inherit;
     }
    }
   }
