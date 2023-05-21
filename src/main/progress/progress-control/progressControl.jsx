@@ -1,6 +1,6 @@
 import styles from './ProgressControl.module.scss'
 import rightArrow from '../../../icon/right-arrow.svg'
-import leftArrow from '/Users/user/alpha-shop/src/icon/left-arrow.svg'
+import leftArrow from '../../../icon/left-arrow.svg'
 
 
 
@@ -8,7 +8,7 @@ export default function NextStep ({handleNextStep,handleLastStep , step}){
   
   return (
     <section className={`${styles.progressContainer} col col-lg-6 col-sm-12`}>
-       {(step !== 0 )&& <section class={`${styles.buttonGroup} col col-12 `} data-phase="address">
+       {(step !== 0 )&& <section className={`${styles.buttonGroup} col col-12 `} data-phase="address">
           <button className={styles.last} onClick={()=>handleLastStep()}> 
             {/* <svg class="cursor-point">
               <use xlink:href="#svg-icon-right-arrow"></use>
@@ -17,7 +17,7 @@ export default function NextStep ({handleNextStep,handleLastStep , step}){
             上一步
           </button>
         </section>}
-       <section class={`${styles.buttonGroup} col col-12 `} data-phase="address">
+       <section className={`${styles.buttonGroup} col col-12 `} data-phase="address">
           <button className={styles.next} onClick={()=>handleNextStep()}>
             {(step === 2)?  "確認下單" : "下一步"}
             {/* <svg class="cursor-point">

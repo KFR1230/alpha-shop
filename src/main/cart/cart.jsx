@@ -35,7 +35,7 @@ function AddCartItem ({id,name,img,price,quantity,handleProduct}){
               <div className={styles.productControlContainer}>
                 <div className={styles.productControl}>
                    <img src = {minusIcon} alt="minus-icon" data-value ={-1} onClick={(e)=>handleProduct(id,Number(e.target.dataset.value))}/>
-                  <span class="product-count">{quantity}</span> 
+                  <span className="product-count">{quantity}</span> 
                  <img src = {plusIcon} data-value ={1} alt="plus-icon" 
                  onClick={(e)=>handleProduct(id,Number(e.target.dataset.value))}/>
                  </div> {/*  原本想用 value ={1} 但這邊使用的是img 所以不會有value  */}
@@ -81,12 +81,12 @@ export default function CartContent(){
         </section>
 
           <section className={`${styles.cartInfo} shipping col col-12`}>
-            <div class="text">運費</div>
-            <div class="price">免費</div>
+            <div className="text">運費</div>
+            <div className="price">免費</div>
           </section>
           <section  className={`${styles.cartInfo} total col col-12`}>
-            <div class="text">小計</div>
-            <div class="price">$ {TotalAmount()}</div> 
+            <div className="text">小計</div>
+            <div className="price">$ {TotalAmount()}</div> 
           </section>
         </section>
   )

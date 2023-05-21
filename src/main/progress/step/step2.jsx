@@ -8,7 +8,7 @@ export default function ProgressStep2(){
               <label className={`${styles.radioGroup} col col-12`} data-price="0">
                 <input id="shipping-standard" type="radio" name="shipping" checked />
                 <div className={styles.radioInfo}>
-                  <div class="col col-12">
+                  <div clasName="col col-12">
                     <div className={styles.text}>標準運送</div>
                     <div className={styles.price}></div>
                   </div>
@@ -16,7 +16,7 @@ export default function ProgressStep2(){
                 </div>
                 <div className={styles.radioBoxBorder}></div>
               </label>
-              <label class={`${styles.radioGroup} col col-12`} data-price="500">
+              <label className={`${styles.radioGroup} col col-12`} data-price="500">
                 <input id="shipping-dhl" type="radio" name="shipping" />
                 <div className={styles.radioInfo}>
                   <div className="col col-12">
