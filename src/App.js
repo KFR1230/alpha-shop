@@ -6,6 +6,8 @@ import Progress from './main/progress/progress.jsx'
 import Register from './main/register/register.jsx';
 import Cart from './main/cart/cart.jsx'
 import {useState} from 'react'
+import { CartContextProvider } from './main/cart/cartContext';
+
 
 
 const stepState = [
@@ -27,16 +29,20 @@ const stepState = [
 ]
 
 
+
 function App() {
-  const [stepContent , setStepContent ] = useState(stepState[0])
-  const [step , setStep] = useState(0)
+  const [stepContent , setStepContent ] = useState(stepState[2])
+  const [step , setStep] = useState(2)
   function handleNextStep (e){
+  step ===2 && alert("ok");
   if(step < 3) {
     setStep(s=> (s===2)? 2 : s+1)
   }
   setStepContent({...stepContent, ...stepState[step+1]})
   //不曉得為什麼這裡帶step還是會維持０ 
   //step的數值有變更 但在setStepContent的step還是０
+  
+  
 }
  function handleLastStep (e){
   if(step > 0) {
@@ -45,10 +51,12 @@ function App() {
   setStepContent({...stepContent,...stepState[step-1]}) 
   //不曉得為什麼這裡帶step還是會維持０
   //step的數值有變更 但在setStepContent的step還是０
+  
 }
   return (
     <>
       <Main>
+        <CartContextProvider>
         <div className='leftContent'>
           <Register 
           displayer1={stepContent.stepState1} 
@@ -61,9 +69,10 @@ function App() {
           handleLastStep={handleLastStep} 
           step={step}/>
         </div>
-        <div className='rightContent'>
-          <Cart/>
+        <div className='rightContent'>         
+             <Cart/>
         </div>
+        </CartContextProvider>
       </Main>
     </>
   );

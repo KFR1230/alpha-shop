@@ -1,31 +1,17 @@
 import styles from './Cart.module.scss'
 import minusIcon from '../../icon/minus.svg'
 import plusIcon from '../../icon/plus.svg'
-import {useState} from 'react'
-
-
-const cartItems = [
-  {
-    id: '1',
-    name: '貓咪罐罐',
-    img: 'https://picsum.photos/300/300?text=1',
-    price: 100,
-    quantity: 2,
-  },
-  {
-    id: '2',
-    name: '貓咪干干',
-    img: 'https://picsum.photos/300/300?text=2',
-    price: 200,
-    quantity: 1,
-  },
-]
+import {useContext} from 'react'
+import {cartContext} from './cartContext.js'
 
 
 
 
 
-function AddCartItem ({id,name,img,price,quantity,handleProduct}){
+
+
+function AddCartItem ({id,name,img,price,quantity}){
+  const {handleProduct} = useContext(cartContext)
   
   return (
     <div className={styles.productContainer} id={id}>
@@ -44,39 +30,19 @@ function AddCartItem ({id,name,img,price,quantity,handleProduct}){
       </div>
     </div>
   )
-}
+ }
 
 
 export default function CartContent(){
-  const [cart , setCart] = useState(cartItems);
-  function handleProduct(id,value){
-    const setQuantity = cart.map((c)=>{
-      if(c.id === id ){
-        return {
-          ...c,
-          quantity: (c.quantity + value !== 0)? c.quantity + value : 1 
-        }
-      }else{
-        return c
-      }
-    })
-    
-   setCart(setQuantity)
-  }
-  function TotalAmount (){
-    let total = 0
-    cart.forEach((c)=>{
-      total += c.price * c.quantity
-    })
-    return total
-  }
+  const {cart,TotalAmount} = useContext(cartContext)
+
   return(
       <section className={`${styles.cartContainer} col col-lg-5 col-sm-12`}>
           <h3 className={styles.title}>購物籃</h3>
-        
+    
         <section className={`${styles.productList} col col-12 `} data-total-price="0" >
           {cart.map((item)=>
-            <AddCartItem {...item} key={item.id} handleProduct={handleProduct}/>        
+            <AddCartItem {...item} key={item.id}/>        
           )}
         </section>
 
