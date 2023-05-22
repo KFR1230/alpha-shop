@@ -31,8 +31,8 @@ const stepState = [
 
 
 function App() {
-  const [stepContent , setStepContent ] = useState(stepState[2])
-  const [step , setStep] = useState(2)
+  const [stepContent , setStepContent ] = useState(stepState[0])
+  const [step , setStep] = useState(0)
   function handleNextStep (e){
   step ===2 && alert("ok");
   if(step < 3) {
