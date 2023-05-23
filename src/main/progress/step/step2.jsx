@@ -6,7 +6,7 @@ export default function ProgressStep2(){
             <h3 className={styles.formTitle}>運送方式</h3>
             <div className={`col col-12`}>
               <label className={`${styles.radioGroup} col col-12`} data-price="0">
-                <input id="shipping-standard" type="radio" name="shipping" checked={true} onChange={(e)=>e.target.checked}/>
+                <input id="shipping-standard" type="radio" name="shipping" defaultChecked/>
                 <div className={styles.radioInfo}>
                   <div className="col col-12">
                     <div className={styles.text}>標準運送</div>
