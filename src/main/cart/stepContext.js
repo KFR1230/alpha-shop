@@ -9,15 +9,22 @@ let userCardInfo = {
   CVC:""
 }
 
-
+const shipInfo = {
+  method : "standard"
+}
 
 
 const StepContext = createContext(null)
 
 const StepProvider = ({children})=>{
   const [userInfo, setUserInfo] = useState(userCardInfo)
+
+  const [shipping,setShipping] = useState(true)
+
   const {TotalAmount} = useContext(cartContext);
   
+
+
 function handleInputChange (e){
   setUserInfo({...userInfo,[e.target.name]: e.target.value})
 }
@@ -29,6 +36,10 @@ function handleInputChange (e){
     console.log(`CVC : ${userInfo.CVC}`)
     console.log(`總金額：＄${TotalAmount()}`)
   }
+
+function handleChangeShip (e){
+  setShipping()
+}
 
 
   const value = {
